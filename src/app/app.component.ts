@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'projet-OPC';
+  
+  isAuth = false;
+
+  constructor() {
+    setTimeout(
+      () => {
+        this.isAuth = true;
+      }, 1000
+    );
+  }
+
+  onAllumer() {
+    console.log('on allume tout');
+  }
 }

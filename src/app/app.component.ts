@@ -31,11 +31,22 @@ export class AppComponent implements OnInit{
     );
   }
 
-  ngOnInit() {
-    this.appareils = this.appareilService.appareils;
-  }
+ 
 
   onAllumer() {
-    console.log('on allume tout');
+    this.appareilService.switchOnAll();
+    console.log('tout allumer')
+  };
+
+  onEteindre() {
+    if(confirm('Etes vous sur de vouloir eteindre tous vos appareils ?')) {
+      this.appareilService.switchOffAll();
+    } else {
+      return null;
+    }
+  }
+
+  ngOnInit() {
+    this.appareils = this.appareilService.appareils;
   }
 }

@@ -2,10 +2,11 @@
   <div class="row">
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
+      <p>Mis à jour: {{ lastUpdate | async | date: 'short' | uppercase }}</p>
       <ul>
-        <app-appareil appareilName="Machine a laver"></app-appareil>
-        <app-appareil appareilName="Toaster"></app-appareil>
-        <app-appareil appareilName="Bouilloire"></app-appareil>
+        <app-appareil *ngFor="let appareil of appareils"
+                      [appareilName]="appareil.name"
+                      [appareilStatus]="appareil.status"></app-appareil>
       </ul>
       <button class="btn btn-success" 
               [disabled]="!isAuth"
@@ -13,3 +14,8 @@
     </div>
   </div>
 </div>
+
+
+        <!-- <app-appareil appareilName="Machine a laver"></app-appareil>
+        <app-appareil appareilName="Toaster"></app-appareil>
+        <app-appareil appareilName="Bouilloire"></app-appareil> -->

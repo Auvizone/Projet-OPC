@@ -1,25 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>Mes appareils</h2>
-      <p>Mis à jour: {{ lastUpdate | async | date: 'short' | uppercase }}</p>
-      <ul>
-        <app-appareil *ngFor="let appareil of appareils; let i = index"
-                      [appareilName]="appareil.name"
-                      [appareilStatus]="appareil.status"
-                      [index]="i"></app-appareil>
-      </ul>
-      <button class="btn btn-success" 
-              [disabled]="!isAuth"
-              (click)="onAllumer()">Tout allumer !</button>
-      <button class="btn btn-success"
-              [disabled]="!isAuth"
-              (click)="onEteindre()">Tout éteindre !</button>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <app-appareil-view></app-appareil-view>
+      </div>
     </div>
   </div>
-</div>
+</nav>
 
-
-        <!-- <app-appareil appareilName="Machine a laver"></app-appareil>
+<!-- <app-appareil appareilName="Machine a laver"></app-appareil>
         <app-appareil appareilName="Toaster"></app-appareil>
         <app-appareil appareilName="Bouilloire"></app-appareil> -->
